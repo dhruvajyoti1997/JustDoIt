@@ -1,0 +1,51 @@
+package stream.examples;
+
+import java.io.*;
+
+public class fileexamples {
+
+	public static void main(String[] args)  {
+		// TODO Auto-generated method stub
+
+		File file= new File("\\annonymous\\timesheet.pdf");
+		File copyFile = new File("\\annonymous\\timesheet-copy.pdf");
+		
+		FileInputStream input= null;
+		FileOutputStream output= null;
+		try {
+		input= new FileInputStream(file);
+		
+		output= new FileOutputStream(copyFile);
+		
+		System.out.println(input.available());
+		
+		int i=0;
+		while ((i= input.read()) != -1) {
+			
+			output.write(i);
+		}
+			
+		} catch(Exception e) {e.printStackTrace();
+		
+		} finally {
+			
+			if(input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(output != null) {
+					try {
+						output.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+	}
+
+}
