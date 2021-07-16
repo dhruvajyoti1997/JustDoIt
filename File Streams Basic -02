@@ -1,0 +1,33 @@
+package stream.examples;
+
+import java.io.*;
+import java.util.Arrays;
+
+public class fileexamples_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//Printing files and folder in sorted order
+		
+		String path = "D:\\annonymous";
+		
+		File file = new File(path);
+		
+	    File listdir[]=	file.listFiles();
+		
+	Arrays.sort(listdir); //sorting the arraylist of listdir
+	
+	for(File e: listdir) {
+		if(e.isFile()) {
+			System.out.println("file Name"+e.getName());
+			System.out.println("path name"+e.getPath());
+		} else if(e.isDirectory()) {
+			System.out.println("directory"+e.getName());
+		} else {
+			System.out.println("Not Known"+e.getName());
+		}
+		
+	}	
+	}
+
+}
